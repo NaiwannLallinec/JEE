@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Connexion</title>
+</head>
+
+<body>
+	<h1>Connexion</h1>
+
+	<form th:action="@{/connect}" th:object="${person}" method="post">
+		<label for="firstName">Prénom :</label>
+		<input type="text" id="firstName" name="firstName" th:field="*{firstName}" required>
+		<br>
+
+		<label for="lastName">Nom de famille :</label>
+		<input type="text" id="lastName" name="lastName" th:field="*{lastName}" required>
+		<br>
+
+		<button type="submit">Enregistrer</button>
+	</form>
+	<h1>Ou inscription</h1>
+	<form th:action="@{/form}" th:object="${person}" method="post">
+		<label for="firstName">Prénom :</label>
+		<input type="text" id="firstName" name="firstName" th:field="*{firstName}" required>
+		<br>
+
+		<label for="lastName">Nom de famille :</label>
+		<input type="text" id="lastName" name="lastName" th:field="*{lastName}" required>
+		<br>
+
+		<button type="submit">Enregistrer</button>
+	</form>
+	
+</body>
+
+</html>

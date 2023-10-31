@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Détails de la Personne</title>
+</head>
+
+<body>
+	<h1>Détails de la Personne</h1>
+
+	<p>ID : <span th:text="${person.id}"></span></p>
+	<p>Prénom : <span th:text="${person.firstName}"></span></p>
+	<p>Nom de famille : <span th:text="${person.lastName}"></span></p>
+
+	<a href="/list">Retour à la liste des personnes</a>
+</body>
+
+</html>
