@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Liste des Personnes</title>
+</head>
+
+<body>
+	<h1>Ces gens là sont aussi inscrits</h1>
+
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Prénom</th>
+			<th>Nom de famille</th>
+		</tr>
+		<tr th:each="person : ${people}">
+			<td th:text="${person.id}"></td>
+			<td th:text="${person.firstName}"></td>
+			<td th:text="${person.lastName}"></td>
+		</tr>
+	</table>
+
+	<a th:href="@{/form}">Ajouter une personne</a>
+</body>
+
+</html>

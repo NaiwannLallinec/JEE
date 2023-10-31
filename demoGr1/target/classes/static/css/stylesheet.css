@@ -1,0 +1,115 @@
+/* Styles personnalisés */
+body {
+	font-family: Arial, sans-serif;
+	background-color: rgb(186, 189, 182);
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+	padding: 20px;
+}
+
+nav {
+	background-color: #444;
+	color: #fff;
+	text-align: center;
+	padding: 10px;
+}
+
+nav ul {
+	list-style: none;
+	padding: 0;
+}
+
+nav ul li {
+	display: inline;
+	margin-right: 20px;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+}
+
+h2 {
+	font-size: 24px;
+	margin-top: 0;
+}
+
+.product {
+	border: 1px solid #ddd;
+	padding: 20px;
+	margin: 10px;
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tailleCarte {
+	max-height: 300px !important;
+	object-fit: cover;
+}
+
+.custom-modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7);
+	z-index: 999;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-content {
+	background: #fff;
+	border-radius: 5px;
+	width: 60%;
+	/* Largeur minimale de 80% */
+	width: auto;
+	max-height: 80%;
+	/* Hauteur maximale de 80% de la hauteur de la fenêtre */
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+}
+
+.modal-image {
+	max-width: 50%;
+	/* Largeur de l'image à gauche */
+	height: 100%;
+	/* Hauteur maximale de l'image */
+	object-fit: contain;
+	/* Ajustement de l'image */
+}
+
+.temp {
+	width: 150px;
+	height: 200px;
+}
+
+.modal-details {
+	padding: 20px;
+	max-width: 50%;
+	/* Largeur du texte et du bouton à droite */
+}
+
+.close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+
+.modal-column {
+	width: 50%;
+	padding: 10px;
+}

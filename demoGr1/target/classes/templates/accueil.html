@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Accueil - Site trop bien</title>
+	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+
+<body>
+
+	<div th:replace="header.html"></div>
+
+	<!-- Contenu principal Bootstrap -->
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h2 class="fw-bold">Produits en Vedette</h2>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="card">
+					<img src="/images/short.jpg" class="card-img-top" alt="Produit 1">
+					<div class="card-body">
+						<h5 class="card-title">Produit 1</h5>
+						<p class="card-text">Description du produit 1.</p>
+						<p class="card-text">Prix : $19.99</p>
+						<a href="#" class="btn btn-primary">Ajouter au Panier</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="card">
+					<img src="/images/tshirtfille.jpeg" class="card-img-top" alt="Produit 2">
+					<div class="card-body">
+						<h5 class="card-title">Produit 2</h5>
+						<p class="card-text">Description du produit 2.</p>
+						<p class="card-text">Prix : $24.99</p>
+						<a href="#" class="btn btn-primary">Ajouter au Panier</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

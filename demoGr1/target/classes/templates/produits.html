@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Nos Produits - Site trop bien</title>
+	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/stylesheet.css">
+	<script src="/js/javascript.js"></script>
+</head>
+
+<body>
+
+	<div th:replace="header.html"></div>
+
+	<!-- Contenu principal Bootstrap -->
+	<div class="container">
+		<h2 class="fw-bold">Nos Produits</h2>
+		<div class="row">
+			<div th:each="product : ${products}">
+				
+				<img th:src="${product.image}" class="card-img-top tailleCarte" th:alt="${product.name}" />
+
+				<h5 th:text="${product.name}"></h5>
+				<p th:text="${product.description}"></p>
+				<p th:text="'Prix : $' + ${product.price}"></p>
+				<a href="#" class="btn btn-primary">Ajouter au Panier</a>
+				
+				
+
+				</div>
+		</div>
+	</div>
+
+	<!-- Modal générique -->
+	<div class="custom-modal" id="productModal">
+		<div class="modal-content">
+			<span class="close" onclick="closeModal()">&times;</span>
+			<div class="row m-5">
+				<div class="col-md">
+					<img class="modal-image" src="" alt="Produit">
+				</div>
+				<div class="col-md">
+					<h5 id="productTitle"></h5>
+					<p id="productDescription"></p>
+					<p id="productPrice"></p>
+					<button class="btn btn-primary">Ajouter au Panier</button>
+				</div>
+			</div>
+
+			<div class="row m-5">
+				<div class="col-md-6">
+					<p class="m-auto fw-bold">Vous pourriez aussi aimer</p>
+				</div>
+				<div class="col-md-6">
+					<div class="row" id="relatedProducts">
+						<!-- Contenu des produits connexes -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

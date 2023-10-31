@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bravo Page</title>
+</head>
+<body>
+    <h1>Connecté en tant qu'administrateur</h1>
+    <p>Félicitations ! Vous avez réussi.</p>
+    <form th:action="@{/stocking}"  method="post">
+		<button type="submit">Ajouter un produit</button>
+	</form>
+	<form th:action="@{/accueil}"  method="post">
+		<button type="submit">Accès au site coté client</button>
+	</form>
+</body>
+</html>
