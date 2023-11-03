@@ -12,7 +12,7 @@
 		<tr>
 			<th>ID</th>
 			<th>Type</th>
-			<th>Couleur </th>
+			<th Couleur</th>
 			<th>Taille</th>
 			<th>Stock</th>
 		</tr>
@@ -29,11 +29,13 @@
 					<input type="number" id="stock" name="stock" min="0" required>
 					<button type="submit">Mettre à jour le stock</button>
 				</form>
-
-
 			</td>
 		</tr>
 	</table>
+	<h2>Recommendation :</h2>
+	<p>Type qui peut vous plaire : <span th:text="${commonType}"></span></p>
+	<p>Couleur qui peut vous plaire : <span th:text="${commonColor}"></span></p>
+	<p>Taille qui peut vous plaire : <span th:text="${commonSize}"></span></p>
 
 	<a th:href="@{/productregister}">Ajouter un nouveau produit</a>
 </body>

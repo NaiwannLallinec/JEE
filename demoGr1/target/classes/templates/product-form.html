@@ -1,22 +1,32 @@
 <h1>Enregistrement produit</h1>
 
-	<form th:action="@{/productregister}" th:object="${product}" method="post">
-		
-		<label for="type">Type :</label>
-		<input type="text" id="type" name="type" th:field="*{type}" required>
-		<br>
-		
-		<label for="couleur">Couleur :</label>
-		<input type="text" id="couleur" name="couleur" th:field="*{couleur}" required>
-		<br>
+<form th:action="@{/productregister}" th:object="${product}" method="post">
 
-		<label for="taille">Taille :</label>
-		<input type="text" id="taille" name="taille" th:field="*{taille}" required>
-		<br>
-		
-		<label for="stock">Stock :</label>
-		<input type="text" id="stock" name="stock" th:field="*{stock}" required>
-		<br>
+	<label for="type">Type :</label>
+	<select id="type" name="type" th:field="*{type}" required>
+		<option th:each="vetement : ${T(fr.cytech.pau.demoGr1.Vetement).values()}" th:value="${vetement}"
+			th:text="${vetement.getDescription()}"></option>
+	</select>
+	<br>
 
-		<button type="submit">Enregistrer le produit</button>
-	</form>
+	<label for="couleur">Couleur:</label>
+	<select id="couleur" name="couleur" th:field="*{couleur}" required>
+		<option th:each="couleur : ${T(fr.cytech.pau.demoGr1.Couleur).values()}" th:value="${couleur}"
+			th:text="${couleur.getDescription()}"></option>
+	</select>
+	<br>
+
+	<label for="taille">Taille :</label>
+	<select id="taille" name="taille" th:field="*{taille}" required>
+		<option th:each="taille : ${T(fr.cytech.pau.demoGr1.Taille).values()}" th:value="${taille.getDescription()}" th:text="${taille.getDescription()}"></option>
+		</option>
+	</select>
+
+	<br>
+
+	<label for="stock">Stock :</label>
+	<input type="text" id="stock" name="stock" th:field="*{stock}" required>
+	<br>
+
+	<button type="submit">Enregistrer le produit</button>
+</form>
