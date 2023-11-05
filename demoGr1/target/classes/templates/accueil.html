@@ -5,46 +5,62 @@
 	<title>Accueil - Site trop bien</title>
 	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/stylesheet.css">
+	<link rel="stylesheet" href="/css/accueil.css"> 
 </head>
 
 <body>
-
 	<div th:replace="header.html"></div>
 
-	<!-- Contenu principal Bootstrap -->
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h2 class="fw-bold">Produits en Vedette</h2>
+				<h1 class="site-trop-bien text-center mb-3">Site trop bien</h1>
 			</div>
 		</div>
 
 		<div class="row">
-			<div class="col-md-4">
-				<div class="card">
-					<img src="/images/short.jpg" class="card-img-top" alt="Produit 1">
-					<div class="card-body">
-						<h5 class="card-title">Produit 1</h5>
-						<p class="card-text">Description du produit 1.</p>
-						<p class="card-text">Prix : $19.99</p>
-						<a href="#" class="btn btn-primary">Ajouter au Panier</a>
-					</div>
+			<div class="col">
+				<a href="/produits">
+					<img src="/images/produits-image.png" alt="Produits" class="img-fluid w-100">
+				</a>
+			</div>
+		</div>
+
+		<div class="row mt-4">
+			<div class="col-md-6">
+				<h3 class="mb-3 text-center">Commentaires sur notre site</h3>
+				<div class="site-comments">
+					<p>"Super qualité et livraison rapide, je recommande !" - Marie</p>
+				</div>
+				<div class="site-comments">
+					<p>"Site très pratique et service client au top !" - Thomas</p>
+				</div>
+				<div class="site-comments">
+					<p>"J'adore les produits de ce site, super tendance !" - Sarah</p>
+				</div>
+				<div class="site-comments">
+					<p>"Livraison rapide, et les vêtements sont de très bonne qualité." - Martin</p>
+				</div>
+				<div class="site-comments">
+					<p>"Site facile à naviguer, je recommande vivement !" - Emma</p>
 				</div>
 			</div>
-
-			<div class="col-md-4">
-				<div class="card">
-					<img src="/images/tshirtfille.jpeg" class="card-img-top" alt="Produit 2">
-					<div class="card-body">
-						<h5 class="card-title">Produit 2</h5>
-						<p class="card-text">Description du produit 2.</p>
-						<p class="card-text">Prix : $24.99</p>
-						<a href="#" class="btn btn-primary">Ajouter au Panier</a>
-					</div>
-				</div>
+			<div class="col-md-6">
+				<h3 class="mb-3 text-center">À propos de nous</h3>
+				<p>
+					Bienvenue sur Site trop bien, où nous mettons un point d'honneur à offrir bien plus que des
+					vêtements à la mode. Notre engagement se traduit par la proposition de produits de qualité, conçus
+					en privilégiant la durabilité et le respect de l'environnement. Nous sommes fiers de nos efforts
+					pour soutenir des pratiques éthiques tout au long de nos processus de production, garantissant ainsi
+					que chaque achat soit en accord avec nos valeurs de respect à la fois pour l'environnement et nos
+					clients. Explorez notre collection et rejoignez-nous dans ce parcours vers une mode respectueuse de
+					notre monde.
+				</p>
 			</div>
 		</div>
 	</div>
+
+	<div th:replace="footer.html"></div>
 
 </body>
 

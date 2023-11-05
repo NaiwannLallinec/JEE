@@ -1,22 +1,76 @@
-<h1>Enregistrement produit</h1>
+<!DOCTYPE html>
+<html>
 
-	<form th:action="@{/productregister}" th:object="${product}" method="post">
-		
-		<label for="type">Type :</label>
-		<input type="text" id="type" name="type" th:field="*{type}" required>
-		<br>
-		
-		<label for="couleur">Couleur :</label>
-		<input type="text" id="couleur" name="couleur" th:field="*{couleur}" required>
-		<br>
+<head>
+	<title>Ajouter Produit - Site trop bien</title>
+	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/stylesheet.css">
+	<link rel="stylesheet" href="/css/admin.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
 
-		<label for="taille">Taille :</label>
-		<input type="text" id="taille" name="taille" th:field="*{taille}" required>
-		<br>
-		
-		<label for="stock">Stock :</label>
-		<input type="text" id="stock" name="stock" th:field="*{stock}" required>
-		<br>
+<body>
+	<div th:replace="header.html"></div>
 
-		<button type="submit">Enregistrer le produit</button>
+	<form th:action="@{/productregister}" th:object="${product}" method="post" class="needs-validation" novalidate>
+		<h1 class="text-center mb-4">Enregistrement produit</h1>
+		<div class="form-group">
+			<label for="type">Type :</label>
+			<select id="type" name="type" th:field="*{type}" class="form-control" required>
+				<option th:each="vetement : ${T(fr.cytech.pau.demoGr1.Vetement).values()}" th:value="${vetement}"
+					th:text="${vetement.getDescription()}"></option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="couleur">Couleur :</label>
+			<select id="couleur" name="couleur" th:field="*{couleur}" class="form-control" required>
+				<option th:each="couleur : ${T(fr.cytech.pau.demoGr1.Couleur).values()}" th:value="${couleur}"
+					th:text="${couleur.getDescription()}"></option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="taille">Taille :</label>
+			<select id="taille" name="taille" th:field="*{taille}" class="form-control" required>
+				<option th:each="taille : ${T(fr.cytech.pau.demoGr1.Taille).values()}"
+					th:value="${taille.getDescription()}" th:text="${taille.getDescription()}"></option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="prix">Prix :</label>
+			<input type="text" id="prix" name="prix" th:field="*{prix}" class="form-control" required>
+		</div>
+
+		<div class="form-group">
+			<label for="stock">Stock :</label>
+			<input type="text" id="stock" name="stock" th:field="*{stock}" class="form-control" required>
+		</div>
+
+		<input type="hidden" id="image" name="image" th:value="${product.couleur + '.' + product.type + '.jpg'}" />
+
+		<div class="form-group">
+			<label for="description">Description :</label>
+			<input type="text" id="description" name="description" th:field="*{description}" class="form-control"
+				required>
+		</div>
+
+		<button type="submit" class="btn btn-primary">Enregistrer le produit</button>
 	</form>
+
+	<div th:replace="footer.html"></div>
+
+	<script>
+		$(document).ready(function () {
+			$('#couleur, #type').change(function () {
+				var couleur = $('#couleur').val();
+				var type = $('#type').val();
+				$('input[name="image"]').val(couleur + '.' + type + '.jpg');
+			});
+		});
+	</script>
+
+</body>
+
+</html>

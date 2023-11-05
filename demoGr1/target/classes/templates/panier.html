@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Panier</title>
+	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/stylesheet.css">
+	<link rel="stylesheet" href="/css/panier.css">
+</head>
+
+<body>
+	<div th:replace="header.html"></div>
+	<div class="container">
+		<h1>Panier</h1>
+
+		<th:block th:if="${commandeLignes == null or #lists.isEmpty(commandeLignes)}">
+			<p>Le panier est vide.</p>
+		</th:block>
+
+		<div th:if="${commandeLignes != null and not #lists.isEmpty(commandeLignes)}">
+			<div class="row">
+				<div th:each="product : ${commandeLignes}" class="col-md-4 mb-4">
+					<div class="card">
+						<img th:src="@{'/images/' + ${product.product.image}}" class="card-img-top" alt="Product Image">
+						<div class="card-body">
+							<h5 class="card-title" th:text="${product.product.type}"></h5>
+							<p class="card-text">Couleur: <span th:text="${product.product.couleur}"></span></p>
+							<p class="card-text">Taille: <span th:text="${product.product.taille}"></span></p>
+							<p class="card-text">Stock: <span th:text="${product.product.stock}"></span></p>
+							<p class="card-text">Quantité: <span th:text="${product.quantite}"></span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="d-flex justify-content-between">
+				<form th:if="${!commandeLignes.empty}" method="post" action="/viderPanier">
+					<button type="submit" class="btn btn-danger mt-3">Vider le Panier</button>
+				</form>
+
+				<a th:if="${!commandeLignes.empty}" href="/paiement" class="btn btn-success mt-3">Payer</a>
+			</div>
+		</div>
+
+		<h2>Recommendation :</h2>
+		<p>Type qui peut vous plaire : <span th:text="${commonType}"></span></p>
+		<p>Couleur qui peut vous plaire : <span th:text="${commonColor}"></span></p>
+		<p>Taille qui peut vous plaire : <span th:text="${commonSize}"></span></p>
+
+	</div>
+
+	<div th:replace="footer.html"></div>
+</body>
+
+</html>

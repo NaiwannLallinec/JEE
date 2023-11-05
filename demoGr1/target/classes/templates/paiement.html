@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Paiement</title>
+	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/stylesheet.css">
+	<link rel="stylesheet" href="/css/paiement.css">
+</head>
+
+<body>
+	<div th:replace="header.html"></div>
+
+	<div class="test879564">
+		<h1>Paiement</h1>
+
+		<label for="card_number">Numéro de carte :</label>
+		<input type="text" id="card_number" name="card_number" required><br><br>
+
+		<label for="expiry_date">Date d'expiration :</label>
+		<input type="text" id="expiry_date" name="expiry_date" required><br><br>
+
+		<label for="cvv">CVV :</label>
+		<input type="text" id="cvv" name="cvv" required><br><br>
+
+		<form action="/process_payment" method="post" class="mb-5">
+
+			<input type="hidden" id="montant" name="montant" th:value="${totalAvecTVA}" />
+			<input type="hidden" id="tva" name="tva" th:value="${tva}" />
+
+			<label for="adresse">Adresse de facturation :</label>
+			<input type="text" id="adresse" name="adresse" required><br><br>
+
+			<p>Prix : <span th:text="${totalPanier}"></span></p>
+
+			<p>TVA : <span th:text="${tva}"></span></p>
+			
+			<p>Prix total avec TVA : <span th:text="${totalAvecTVA}"></span></p>
+
+			<input type="submit" value="Payer">
+		</form>
+	</div>
+
+	<div th:replace="footer.html"></div>
+</body>
+
+</html>
