@@ -1,6 +1,6 @@
 Site Trop Bien application SpringBoot: site de E-commerce 
 
-Fonctionnalités
+Fonctionnalités/
 Technologies utilisées/
 Contributeurs/
 Lancement de l'application
@@ -35,7 +35,7 @@ log utilisateur : Il faut s'inscrire pour en avoir un
 
 log pour l'admin :
 
-login: admin
+login: admin/
 mdp: admin
 
 La gestion des stocks se fera avec le compte admin (création de produits) il n'y a pas de produits au préalable
