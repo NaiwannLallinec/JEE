@@ -42,10 +42,25 @@
 			</div>
 		</div>
 
-		<h2>Recommendation :</h2>
-		<p>Type qui peut vous plaire : <span th:text="${commonType}"></span></p>
-		<p>Couleur qui peut vous plaire : <span th:text="${commonColor}"></span></p>
-		<p>Taille qui peut vous plaire : <span th:text="${commonSize}"></span></p>
+		<h2>Vous devriez considérer à acheter ce type de produits:</h2>
+		<p>Type :
+			<span th:if="${commonType == 0}">Chemise</span>
+			<span th:if="${commonType == 1}">Pantalon</span>
+			<span th:if="${commonType == 2}">Jupe</span>
+			<span th:if="${commonType == 3}">T-shirt</span>
+			<span th:if="${commonType == 4}">Veste</span>
+			<span th:if="${commonType == 5}">Robe</span>
+		</p>
+
+		<p>Couleur : <span th:text="${commonColor}"></span></p>
+		<p>Taille :
+			<span th:if="${commonSize == 1}">XS</span>
+			<span th:if="${commonSize == 2}">S</span>
+			<span th:if="${commonSize == 3}">M</span>
+			<span th:if="${commonSize == 4}">L</span>
+			<span th:if="${commonSize == 5}">XL</span>
+			<span th:if="${commonSize == 6}">XXL</span>
+		</p>
 
 	</div>
 
