@@ -28,7 +28,7 @@ Naiwann LALLINEC/
 Maxime DEJARDIN
 
 Lancement de l'application :
-
+Pour une meilleure expérience il faut supprimer les éléments de la BDD si il en reste
 Run Configuration -> Goals -> spring-boot:run -> apply -> run
 
 log utilisateur : Il faut s'inscrire pour en avoir un
