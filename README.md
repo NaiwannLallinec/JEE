@@ -29,7 +29,7 @@ Maxime DEJARDIN
 
 Lancement de l'application :
 
-Pour une meilleure expérience il faut supprimer les éléments de la BDD si il en reste
+Pour une meilleure expérience il faut supprimer les éléments de la BDD si il en reste (db.mv.db et db.trace.db)
 
 Run Configuration -> Goals -> spring-boot:run -> apply -> run
 
