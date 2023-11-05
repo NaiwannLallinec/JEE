@@ -6,11 +6,7 @@ public enum Vetement {
     JUPE("Jupe"),
     TSHIRT("T-shirt"),
     VESTE("Veste"),
-    ROBE("Robe"),
-    CHAUSSURES("Chaussures"),
-    CHAPEAU("Chapeau"),
-    ECHARPE("Écharpe"),
-    GANTS("Gants");
+    ROBE("Robe");
 
     private String description;
 
