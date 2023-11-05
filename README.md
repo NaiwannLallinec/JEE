@@ -1,24 +1,35 @@
 Site Trop Bien application SpringBoot: site de E-commerce 
 
 Fonctionnalités
+
 Technologies utilisées
+
 Contributeurs
+
 Lancement de l'application
 
 Fonctionnalités :
 
 Ajout de produits au panier.
+
 Recommandations d'achat personnalisées.
+
 Profils utilisateur/admin.
+
 Gestion des utilisateurs et des produits par l'administrateur.
 
 Technologies utilisées :
 
 Java
+
 Spring Boot
+
 Thymeleaf
+
 Html
+
 BootStrap
+
 MySQL
 
 Contributeurs
