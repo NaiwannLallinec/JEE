@@ -33,11 +33,14 @@ Pour une meilleure expérience il faut supprimer les éléments de la BDD si il 
 
 Run Configuration -> Goals -> spring-boot:run -> apply -> run
 
+Dans le application.properties, mettez le lien vers votre projet a la ligne:
+spring.datasource.url=jdbc:h2:/lien/vers/le/projet
+
 log utilisateur : Il faut s'inscrire pour en avoir un
 
 log pour l'admin :
 
-login: admin/
+login: admin
 mdp: admin
 
 La gestion des stocks se fera avec le compte admin (création de produits) il n'y a pas de produits au préalable
