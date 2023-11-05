@@ -1,65 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Nos Produits - Site trop bien</title>
+	<title>Liste des Produits</title>
 	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/stylesheet.css">
-	<script src="/js/javascript.js"></script>
+	<link rel="stylesheet" href="/css/produits.css">
 </head>
 
 <body>
-
 	<div th:replace="header.html"></div>
 
-	<!-- Contenu principal Bootstrap -->
-	<div class="container">
-		<h2 class="fw-bold">Nos Produits</h2>
+	<div class="container mb-5">
+		<h1 class="text-center">Liste des Produits</h1>
+
 		<div class="row">
-			<div th:each="product : ${products}">
-				
-				<img th:src="${product.image}" class="card-img-top tailleCarte" th:alt="${product.name}" />
+			<div th:each="product : ${products}" class="col-md-4">
+				<div class="card mb-4">
+					<img th:src="@{'/images/' + ${product.image}}" class="card-img-top product-image"
+						alt="Product Image">
+					<div class="card-body">
+						<h5 th:text="${product.type}" class="card-title"></h5>
+						<p th:text="'Prix: ' + ${product.prix}" class="card-text"></p>
 
-				<h5 th:text="${product.name}"></h5>
-				<p th:text="${product.description}"></p>
-				<p th:text="'Prix : $' + ${product.price}"></p>
-				<a href="#" class="btn btn-primary">Ajouter au Panier</a>
-				
-				
+						<form method="post" th:action="@{/ajouterCommande}">
+							<input type="hidden" name="productId" th:value="${product.id}" />
+							<label for="quantite" class="form-label">Quantité :</label>
+							<input type="number" name="quantite" min="1" class="form-control mb-2" />
+							<button type="submit" class="btn btn-primary">Ajouter au Panier</button>
+						</form>
 
-				</div>
-		</div>
-	</div>
-
-	<!-- Modal générique -->
-	<div class="custom-modal" id="productModal">
-		<div class="modal-content">
-			<span class="close" onclick="closeModal()">&times;</span>
-			<div class="row m-5">
-				<div class="col-md">
-					<img class="modal-image" src="" alt="Produit">
-				</div>
-				<div class="col-md">
-					<h5 id="productTitle"></h5>
-					<p id="productDescription"></p>
-					<p id="productPrice"></p>
-					<button class="btn btn-primary">Ajouter au Panier</button>
-				</div>
-			</div>
-
-			<div class="row m-5">
-				<div class="col-md-6">
-					<p class="m-auto fw-bold">Vous pourriez aussi aimer</p>
-				</div>
-				<div class="col-md-6">
-					<div class="row" id="relatedProducts">
-						<!-- Contenu des produits connexes -->
+						<a th:href="@{'/produit-details/' + ${product.id}}" class="btn btn-info mt-2">Info</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
+	<div th:replace="footer.html"></div>
 </body>
 
 </html>

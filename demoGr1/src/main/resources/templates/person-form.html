@@ -3,34 +3,57 @@
 
 <head>
 	<title>Connexion</title>
+	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/stylesheet.css">
+	<link rel="stylesheet" href="/css/person-form.css">
 </head>
 
 <body>
-	<h1>Connexion</h1>
 
-	<form th:action="@{/connect}" th:object="${person}" method="post">
-		<label for="firstName">Prénom :</label>
+	<div th:replace="header.html"></div>
+
+	<form th:action="@{/connect}" th:object="${person}" method="post" class="mb-5">
+
+		<h1>Connexion</h1>
+
+		<label for="firstName">Pseudo :</label>
 		<input type="text" id="firstName" name="firstName" th:field="*{firstName}" required>
-		<br>
 
-		<label for="lastName">Nom de famille :</label>
-		<input type="text" id="lastName" name="lastName" th:field="*{lastName}" required>
-		<br>
+		<label for="lastName">Mot de passe :</label>
+		<input type="password" id="lastName" name="lastName" th:field="*{lastName}" required>
 
-		<button type="submit">Enregistrer</button>
+		<button type="submit" class="mt-3">Enregistrer</button>
+
+		<div th:if="${message}">
+			<p th:text="${message}" class="text-danger mt-3"></p>
+		</div>
+
 	</form>
-	<h1>Ou inscription</h1>
-	<form th:action="@{/form}" th:object="${person}" method="post">
-		<label for="firstName">Prénom :</label>
+
+	<form th:action="@{/form}" th:object="${person}" method="post" class="mb-5">
+
+		<h1>Ou inscription</h1>
+
+		<label for="firstName">Pseudo :</label>
 		<input type="text" id="firstName" name="firstName" th:field="*{firstName}" required>
-		<br>
 
-		<label for="lastName">Nom de famille :</label>
-		<input type="text" id="lastName" name="lastName" th:field="*{lastName}" required>
-		<br>
+		<label for="lastName">Mot de passe :</label>
+		<input type="password" id="lastName" name="lastName" th:field="*{lastName}" required>
 
-		<button type="submit">Enregistrer</button>
+		<button type="submit" class="mt-3">Enregistrer</button>
+		
+		<div th:if="${message2}">
+			<p th:text="${message2}" class="text-danger mt-3"></p>
+		</div>
+		
+		<div th:if="${message3}">
+			<p th:text="${message3}" class="text-green mt-3"></p>
+		</div>
+
+		
 	</form>
+	
+	<div th:replace="footer.html"></div>
 	
 </body>
 

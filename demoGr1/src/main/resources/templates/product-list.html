@@ -2,40 +2,70 @@
 <html>
 
 <head>
-	<title>Liste des Produits</title>
+	<title>Ajouter Produit - Site trop bien</title>
+	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/stylesheet.css">
+	<link rel="stylesheet" href="/css/admin.css">
 </head>
 
 <body>
-	<h1>Liste des produits:</h1>
+	<div th:replace="header.html"></div>
 
-	<table>
-		<tr>
-			<th>ID</th>
-			<th>Type</th>
-			<th>Couleur </th>
-			<th>Taille</th>
-			<th>Stock</th>
-		</tr>
-		<tr th:each="product : ${product}">
-			<td th:text="${product.id}"></td>
-			<td th:text="${product.type}"></td>
-			<td th:text="${product.couleur}"></td>
-			<td th:text="${product.taille}"></td>
-			<td th:text="${product.stock}"></td>
-			<td><a th:href="@{'/deleteProduct/' + ${product.id}}">Supprimer</a></td>
-			<td>
-				<form th:action="@{'/updateStock/' + ${product.id}}" method="post">
-					<label for="stock"></label>
-					<input type="number" id="stock" name="stock" min="0" required>
-					<button type="submit">Mettre à jour le stock</button>
-				</form>
+	<div class="container">
 
 
-			</td>
-		</tr>
-	</table>
 
-	<a th:href="@{/productregister}">Ajouter un nouveau produit</a>
+		<h1>Liste des produits</h1>
+
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Type</th>
+					<th>Couleur</th>
+					<th>Taille</th>
+					<th>Stock</th>
+					<th>Description</th>
+					<th>Image</th>
+					<th>Action</th>
+					<th>Modifier le stock</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="product : ${product}">
+					<td th:text="${product.id}"></td>
+					<td th:text="${product.type}"></td>
+					<td th:text="${product.couleur}"></td>
+					<td th:text="${product.taille}"></td>
+					<td th:text="${product.stock}"></td>
+					<td th:text="${product.description}"></td>
+					<td th:text="${product.image}"></td>
+					<td>
+						<a th:href="@{'/deleteProduct/' + ${product.id}}">Supprimer</a>
+					</td>
+					<td>
+						<form th:action="@{'/updateStock/' + ${product.id}}" method="post">
+							<div class="form-group">
+								<label for="stock">Nouveau stock :</label>
+								<input type="number" id="stock" name="stock" class="form-control" min="0" required>
+							</div>
+							<button type="submit" class="btn btn-primary">Mettre à jour le stock</button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<a th:href="@{/productregister}" class="btn btn-success">Ajouter un nouveau produit</a>
+
+		<h2>Recommendation :</h2>
+		<p>Type qui peut vous plaire : <span th:text="${commonType}"></span></p>
+		<p>Couleur qui peut vous plaire : <span th:text="${commonColor}"></span></p>
+		<p>Taille qui peut vous plaire : <span th:text="${commonSize}"></span></p>
+
+	</div>
+	<div th:replace="footer.html"></div>
+
 </body>
 
 </html>

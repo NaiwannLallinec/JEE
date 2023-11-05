@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bravo Page</title>
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/stylesheet.css">
+    <link rel="stylesheet" href="/css/admin.css"> 
+</head>
+<body>
+    <div th:replace="header.html"></div>
+
+    <div class="container admin-page">
+        <h1>Connecté en tant qu'administrateur</h1>
+        <p>Félicitations ! Vous avez réussi.</p>
+        <form th:action="@{/stocking}" method="post">
+            <button type="submit" class="btn btn-primary">Ajouter un produit</button>
+        </form>
+    </div>
+
+    <div th:replace="footer.html"></div>
+</body>
+</html>
