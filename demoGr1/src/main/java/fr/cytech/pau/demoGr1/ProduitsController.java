@@ -23,6 +23,9 @@ public class ProduitsController {
 
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private ProductService productService;
 
 	@PostMapping("/viderPanier")
 	public String viderPanier(HttpSession session) {
@@ -48,6 +51,15 @@ public class ProduitsController {
 	public String getCommande(Model model, HttpSession session) {
 
 		if (session.getAttribute("person") != null) {
+			
+			Long personId = (Long) session.getAttribute("personId");
+			Byte commonType = productService.findCommonType(personId);
+			String commonColor = productService.findCommonColor(personId);
+			Integer commonSize = productService.findCommonSize(personId);
+
+			model.addAttribute("commonType", commonType);
+			model.addAttribute("commonColor", commonColor);
+			model.addAttribute("commonSize", commonSize);
 
 			Person person = (Person) session.getAttribute("person");
 
@@ -107,12 +119,11 @@ public class ProduitsController {
 
 
     @GetMapping("/produits")
-    public String showProductList(Model model) {
+    public String showProductList(Model model, HttpSession session) {
         
-    	// Récupérer la liste de tous les produits depuis la base de données
         List<Product> products = (List<Product>) productRepository.findAll();
+        
 
-        // Ajouter la liste de produits au modèle pour l'affichage dans la vue
         model.addAttribute("products", products);
 
 

@@ -10,23 +10,14 @@ public class ProductService {
     private ProductRepository productRepository;
 
     public Byte findCommonType(Long personId) {
-        if (personId != null) {
-            return productRepository.findMostCommonType(personId);
-        }
-        return null;
+        return productRepository.findMostCommonType(personId);
     }
 
     public String findCommonColor(Long personId) {
-        if (personId != null) {
-            return productRepository.findMostCommonColor(personId);
-        }
-        return null;
+        return productRepository.findMostCommonColor(personId);
     }
 
     public Integer findCommonSize(Long personId) {
-        if (personId != null) {
-            return productRepository.findMostCommonSize(personId);
-        }
-        return null;
+        return productRepository.findMostCommonSize(personId);
     }
 }

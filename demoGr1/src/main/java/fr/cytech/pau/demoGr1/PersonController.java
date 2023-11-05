@@ -91,7 +91,6 @@ public class PersonController {
 	@GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-
         return "redirect:/accueil";
     }
 }
