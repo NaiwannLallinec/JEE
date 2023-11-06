@@ -78,7 +78,9 @@ public class ProduitsController {
 	}
 
 	@PostMapping("/ajouterCommande")
-	public String ajouterAuPanier(@RequestParam("productId") Long id, @RequestParam("quantite") Long quantite, HttpSession session, Model model) {
+	public String ajouterAuPanier(@RequestParam("productId") Long id, @RequestParam("quantite") Long quantite,
+	        HttpSession session, Model model) {
+
 	    Person person = (Person) session.getAttribute("person");
 
 	    if (person == null) {
@@ -86,6 +88,8 @@ public class ProduitsController {
 	    } else {
 	        Product product = productRepository.findById(id).orElse(null);
 	        Commande commande = commandeRepository.findByPerson(person);
+	        
+	        System.out.println(commande);
 
 	        if (commande == null) {
 	            commande = new Commande();
@@ -93,25 +97,12 @@ public class ProduitsController {
 	            commande = commandeRepository.save(commande);
 	        }
 
-	        List<CommandeLigne> commandeLignes = ligneCommandeRepository.findByCommandeDesLignesAndProduct(commande, product);
+	        CommandeLigne ligneCommande = new CommandeLigne();
+	        ligneCommande.setQuantite(quantite);
+	        ligneCommande.setCommandeDesLignes(commande);
+	        ligneCommande.setProduct(product);
 
-	        if (!commandeLignes.isEmpty()) {
-	            CommandeLigne ligneCommande = commandeLignes.get(0);
-	            Long quantiteExistante = ligneCommande.getQuantite();
-
-	            if (quantiteExistante + quantite <= product.getStock()) {
-	                ligneCommande.setQuantite(quantiteExistante + quantite);
-	                ligneCommandeRepository.save(ligneCommande); 
-	            } 
-	        } else {
-	            if (quantite <= product.getStock()) {
-	                CommandeLigne ligneCommande = new CommandeLigne();
-	                ligneCommande.setQuantite(quantite);
-	                ligneCommande.setCommandeDesLignes(commande);
-	                ligneCommande.setProduct(product);
-	                ligneCommandeRepository.save(ligneCommande); 
-	            }
-	        }
+	        ligneCommandeRepository.save(ligneCommande);
 
 	        return "redirect:/panier";
 	    }
